@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'username' => $faker->userName,
-                'password' => bcrypt('kappa')
+                'password' => bcrypt('kappa'),
+                'api_token' => str_random(60)
             ]);
         }
 
@@ -28,7 +29,8 @@ class UserSeeder extends Seeder
             'name' => 'amatsuka',
             'email' => 'amatsuka@amatsuka.amatsuka',
             'username' => 'amatsuka',
-            'password' => bcrypt('kappa')
+            'password' => bcrypt('kappa'),
+            'api_token' => str_random(60)
         ]);
     }
 }
