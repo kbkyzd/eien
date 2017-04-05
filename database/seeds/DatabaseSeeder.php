@@ -5,7 +5,9 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     private $table = [
-        'users'
+        'users',
+        'sensors',
+        'sensor_raws',
     ];
 
     /**
@@ -18,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->cleanDb();
 
         $this->call('UserSeeder');
+        $this->call('SensorSeeder');
+        $this->call('SensorRawDataSeeder');
     }
 
     public function cleanDb()
