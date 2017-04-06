@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Kodeine\Acl\AclServiceProvider::class,
 
         /*
          * Application Service Providers...
