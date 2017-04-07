@@ -6,6 +6,8 @@ class DatabaseSeeder extends Seeder
 {
     private $table = [
         'users',
+        'roles',
+        'role_user',
         'sensors',
         'sensor_raws',
     ];
@@ -19,7 +21,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->cleanDb();
 
+        // Users and Roles
         $this->call('UserSeeder');
+        $this->call('RoleSeeder');
+        $this->call('UserRoleSeeder');
+
+        // Sensors
         $this->call('SensorSeeder');
         $this->call('SensorRawDataSeeder');
     }
