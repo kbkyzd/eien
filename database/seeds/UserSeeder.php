@@ -15,6 +15,14 @@ class UserSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        User::create([
+            'name' => 'amatsuka',
+            'email' => 'amatsuka@amatsuka.amatsuka',
+            'username' => 'amatsuka',
+            'password' => bcrypt('kappa'),
+            'api_token' => str_random(60)
+        ]);
+
         foreach (range(1, 9) as $inx) {
             User::create([
                 'name' => $faker->name,
@@ -23,13 +31,5 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('kappa')
             ]);
         }
-
-        User::create([
-            'name' => 'amatsuka',
-            'email' => 'amatsuka@amatsuka.amatsuka',
-            'username' => 'amatsuka',
-            'password' => bcrypt('kappa'),
-            'api_token' => str_random(60)
-        ]);
     }
 }
