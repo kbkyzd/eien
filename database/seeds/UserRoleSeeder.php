@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
 
 class UserRoleSeeder extends Seeder
 {
@@ -12,8 +11,6 @@ class UserRoleSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-
         // Give the 1st user root privileges
         DB::table('role_user')->insert([
             'role_id' => 1,
