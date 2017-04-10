@@ -7,14 +7,15 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class SanityCheckTest extends TestCase
 {
     /**
-     * A basic test example.
+     * @test
+     * A basic sanity check.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function it_actually_works()
     {
         $response = $this->get('/');
 
