@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Main Top-level routes
+Route::get('home', 'HomeController@index');
+Route::get('about', 'HomeController@about');
+
+
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+    Route::get('profile', 'UserController@showProfile');
+});
