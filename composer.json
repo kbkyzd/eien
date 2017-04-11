@@ -6,11 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "bacon/bacon-qr-code": "^1.0",
         "barryvdh/laravel-ide-helper": "^2.3",
         "doctrine/dbal": "^2.5",
         "kodeine/laravel-acl": "~1.0@dev",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "pragmarx/google2fa": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
