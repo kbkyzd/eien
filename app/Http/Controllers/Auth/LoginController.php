@@ -84,7 +84,9 @@ class LoginController extends Controller
                           ->pull('2fa:user:id');
         $key = $userId . ':' . $request->totp;
 
-        Cache::add($key, true, 4);
+        // Store token to a blacklist. Cache timing matches how old codes are allowed
+        // by the 2FA library.
+        Cache::add($key, true, 3);
 
         Auth::loginUsingId($userId);
 
