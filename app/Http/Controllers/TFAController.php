@@ -2,10 +2,9 @@
 
 namespace eien\Http\Controllers;
 
-use Base32\Base32;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
-use Google2FA;
+use ParagonIE\ConstantTime\Base32;
+use PragmaRX\Google2FA\Vendor\Laravel\Facade as Google2FA;
 
 class TFAController extends Controller
 {
@@ -20,7 +19,7 @@ class TFAController extends Controller
         $user->twofa_secret = $secret;
         $user->save();
 
-        $qrUri = Google2FA::getQRCodeInline('Eien',$user->username, $secret);
+        $qrUri = Google2FA::getQRCodeInline('永遠', $user->email, $secret);
 
         return view('TFA.enable', ['image' => $qrUri, 'secret' => $secret]);
     }

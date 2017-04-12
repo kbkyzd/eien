@@ -6,9 +6,9 @@ use eien\Http\Controllers\Controller;
 use eien\Http\Requests\ValidateSecretRequest;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -57,7 +57,9 @@ class LoginController extends Controller
         if ($user->twofa_secret) {
             Auth::logout();
 
-            $request->session()->put('2fa:user:id', $user->id);
+            $request->session()
+                    ->put('2fa:user:id', $user->id);
+
             return redirect('TFA/validate');
         }
 
@@ -75,12 +77,14 @@ class LoginController extends Controller
 
     public function validateToken(ValidateSecretRequest $request)
     {
-        $userId = $request->session()->pull('2fa:user:id');
+        $userId = $request->session()
+                          ->pull('2fa:user:id');
         $key = $userId . ':' . $request->totp;
 
         Cache::add($key, true, 4);
 
         Auth::loginUsingId($userId);
+
         return redirect()->intended($this->redirectTo);
     }
 }

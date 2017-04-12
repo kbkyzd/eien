@@ -2,12 +2,11 @@
 
 namespace eien\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Validation\Factory as ValidationFactory;
 use Cache;
 use eien\User;
-use Google2FA;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Factory as ValidationFactory;
+use PragmaRX\Google2FA\Vendor\Laravel\Facade as Google2FA;
 
 class ValidateSecretRequest extends FormRequest
 {
@@ -21,7 +20,7 @@ class ValidateSecretRequest extends FormRequest
         $factory->extend('valid_token', function ($attribute, $value, $parameters, $validator) {
             $secret = $this->user->twofa_secret;
 
-            return Google2FA::verifyKey($secret, $value);
+            return Google2FA::verifyKey($secret, $value, 3);
         });
 
         $factory->extend('used_token', function ($attribute, $value, $parameters, $validator) {
