@@ -50,7 +50,7 @@ class LoginController extends Controller
     /**
      * @param Request $request
      * @param $user
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\Response
      */
     public function authenticated(Request $request, Authenticatable $user)
     {
@@ -66,6 +66,9 @@ class LoginController extends Controller
         return redirect()->intended($this->redirectTo);
     }
 
+    /**
+     * @return \Illuminate\Http\Response
+     */
     public function getValidateToken()
     {
         if (session('2fa:user:id')) {
