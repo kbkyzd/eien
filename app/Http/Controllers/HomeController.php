@@ -34,4 +34,10 @@ class HomeController extends Controller
 
         return view('home')->with(compact('sessions'));
     }
+
+
+    public function about()
+    {
+        return view('about');
+    }
 }
