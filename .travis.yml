@@ -16,6 +16,7 @@ before_script:
     - composer install --no-interaction
     - nvm install node
     - npm update -g npm
+    - npm install -g yarn
     - yarn
     - npm run production
     - php artisan key:generate
