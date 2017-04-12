@@ -33,7 +33,7 @@ class TFAController extends Controller
         $user->twofa_secret = null;
         $user->save();
 
-        return view('TFA.disabled');
+        return view('TFA.disable');
     }
 
     /**
