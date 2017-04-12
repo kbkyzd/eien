@@ -1,0 +1,31 @@
+language: php
+
+php:
+    - '7.0'
+    - '7.1'
+
+sudo: false
+
+addons:
+    mariadb: '10.1'
+
+before_script:
+    - cp .env.travis .env
+    - mysql -e 'CREATE DATABASE travis_testing'
+    - composer self-update
+    - composer install --no-interaction
+    - nvm install node
+    - npm update -g npm
+    - yarn
+    - npm run production
+    - php artisan key:generate
+    - php artisan migrate --seed
+
+cache:
+    directories:
+        - node_modules
+        - vendor
+
+script:
+    - vendor/bin/phpunit
+
