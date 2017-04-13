@@ -10,6 +10,7 @@ class TFAController extends Controller
 {
     /**
      * @param Request $request
+     * @return \Illuminate\View\View
      */
     public function enable(Request $request)
     {
@@ -26,6 +27,7 @@ class TFAController extends Controller
 
     /**
      * @param Request $request
+     * @return \Illuminate\View\View
      */
     public function disable(Request $request)
     {
@@ -37,6 +39,8 @@ class TFAController extends Controller
     }
 
     /**
+     * Generate a secure secret with the constant time library.
+     *
      * @return string
      */
     public function generateSecret()
