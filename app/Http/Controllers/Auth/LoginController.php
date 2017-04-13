@@ -82,6 +82,9 @@ class LoginController extends Controller
     }
 
     /**
+     * Once the token is successfully validated, store it to the blacklist,
+     * and log the user in.
+     *
      * @param ValidateSecretRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
