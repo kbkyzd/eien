@@ -34,7 +34,7 @@ class ValidateSecretRequest extends FormRequest
             $key = $this->user->id . ':' . $value;
 
             return !Cache::has($key);
-        }, 'Cannot reuse token');
+        });
     }
 
     /**
