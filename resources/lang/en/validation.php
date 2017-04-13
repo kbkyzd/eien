@@ -85,7 +85,6 @@ return [
     'unique'               => 'The :attribute has already been taken.',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
-    'valid_token'          => 'The :attribute was invalid.',
 
     /*
     |--------------------------------------------------------------------------
@@ -97,6 +96,9 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
+
+    'valid_token' => 'The :attribute was invalid.',
+    'used_token'  => 'The token cannot be reused.',
 
     'custom' => [
         'attribute-name' => [
