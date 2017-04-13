@@ -15,6 +15,11 @@ class ValidateSecretRequest extends FormRequest
      */
     private $user;
 
+    /**
+     * 2FA Validator
+     *
+     * @param ValidationFactory $factory
+     */
     public function __construct(ValidationFactory $factory)
     {
         $factory->extend('valid_token', function ($attribute, $value, $parameters, $validator) {
@@ -23,12 +28,13 @@ class ValidateSecretRequest extends FormRequest
             return Google2FA::verifyKey($secret, $value, 3);
         });
 
+        // valid_token is self-explanatory, used_token makes sures used tokens can't be
+        // reused by adding them to a blacklist (cache).
         $factory->extend('used_token', function ($attribute, $value, $parameters, $validator) {
             $key = $this->user->id . ':' . $value;
 
             return !Cache::has($key);
-        }, 'Cannot reuse token'
-        );
+        }, 'Cannot reuse token');
     }
 
     /**
@@ -39,10 +45,8 @@ class ValidateSecretRequest extends FormRequest
     public function authorize()
     {
         try {
-            $this->user = User::findOrFail(
-                session('2fa:user:id')
-            );
-        } catch (Exception $exc) {
+            $this->user = User::findOrFail(session('2fa:user:id'));
+        } catch (Exception $ex) {
             return false;
         }
 
