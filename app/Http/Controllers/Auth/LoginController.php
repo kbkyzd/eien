@@ -42,6 +42,9 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+    /**
+     * @return string
+     */
     public function username()
     {
         return 'username';
@@ -78,6 +81,10 @@ class LoginController extends Controller
         return redirect('login');
     }
 
+    /**
+     * @param ValidateSecretRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function validateToken(ValidateSecretRequest $request)
     {
         $userId = $request->session()
