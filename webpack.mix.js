@@ -6,6 +6,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // In Production config
 if (mix.config.inProduction) {
     mix.version();
+} else {
+    mix.sourceMaps();
 }
 
 // Config
