@@ -1,5 +1,12 @@
-// Variables
-@import "variables";
+// Materialize Overrides
+@import "vendor/overrides";
 
 // Materialize
 @import "node_modules/materialize-css/sass/materialize.scss";
+
+
+// Pages
+@import "home";
+
+// Vendors conifgs
+@import "vendor/mdi";

@@ -1,13 +1,7 @@
-
 window._ = require('lodash');
 
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-window.$ = window.jQuery = require('jquery');
+// Materialize is incompatible with jQuery > 3.x
+window.$ = window.jQuery = require('materialize-css/node_modules/jquery');
 
 require('materialize-css');
 
@@ -46,3 +40,5 @@ window.axios.defaults.headers.common = {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+window.VeeValidate = require('vee-validate');

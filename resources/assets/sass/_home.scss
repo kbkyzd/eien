@@ -1,0 +1,67 @@
+//colors
+$main_swatch: #444;
+$color_jungle_green_approx: #fae600;
+$white_90: rgba(30, 49, 60, 0.9);
+
+nav {
+  .brand-logo {
+    max-height: 50px;
+    height: auto;
+    margin-top: 6px;
+  }
+  ul a {
+    color: $main_swatch;
+  }
+}
+
+p {
+  line-height: 2rem;
+
+}
+
+.button-collapse {
+  @extend .white-text;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: $white_90;
+  .section {
+    width: 100%;
+
+  }
+}
+
+@media only screen and(max-width: 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+
+  }
+  #index-banner .section {
+    top: 10%;
+
+  }
+}
+
+@media only screen and(max-width: 600px) {
+  #index-banner .section {
+    top: 0;
+
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+  .material-icons {
+    font-size: inherit;
+
+  }
+}
+
+footer.page-footer {
+  margin: 0;
+
+}
