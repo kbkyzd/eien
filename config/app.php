@@ -1,5 +1,8 @@
 <?php
 
+use Geocoder\Provider\Chain;
+use Geocoder\Provider\GoogleMaps;
+
 return [
 
     /*
@@ -169,6 +172,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Kodeine\Acl\AclServiceProvider::class,
         PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
+        Geocoder\Laravel\Providers\GeocoderService::class,
 
         /*
          * Application Service Providers...
