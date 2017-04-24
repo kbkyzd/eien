@@ -2,7 +2,7 @@
   "/js/vendor.js": "/js/vendor.js",
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
+  "/css/minimal.css": "/css/minimal.css",
   "/js/manifest.js": "/js/manifest.js",
-  "/js/legacy.js": "/js/legacy.js",
-  "/css/minimal.css": "/css/minimal.css"
+  "/js/legacy.js": "/js/legacy.js"
 }
