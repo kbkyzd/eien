@@ -8,7 +8,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
    // For js code that can't be bundled
    .combine('resources/assets/js/legacy/*', 'public/js/legacy.js')
    // Fonts
-   //.copy('node_modules/material-design-icons/iconfont/MaterialIcons-Regular.*', '/public/fonts/mdi')
    .copyDirectory('resources/assets/img', 'public/img');
 
 // In Production config
