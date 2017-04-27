@@ -1,9 +1,14 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "name": "amatsuka/eien",
+    "description": "IOT stinx",
+    "license": "BSD-2-Clause",
     "type": "project",
+    "author": [{
+        "name": "Amatsuka Mao",
+        "email": "mao@amatsuka.me",
+        "homepage": "https://amatsuka.me",
+        "role": "Developer"
+    }]
     "require": {
         "php": ">=5.6.4",
         "bacon/bacon-qr-code": "^1.0",
