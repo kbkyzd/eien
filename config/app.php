@@ -173,6 +173,7 @@ return [
         Kodeine\Acl\AclServiceProvider::class,
         PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
         Geocoder\Laravel\Providers\GeocoderService::class,
+        NotificationChannels\Telegram\TelegramServiceProvider::class,
 
         /*
          * Application Service Providers...
