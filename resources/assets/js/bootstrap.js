@@ -1,9 +1,9 @@
 window._ = require('lodash');
 
 // Materialize is incompatible with jQuery > 3.x
-window.$ = window.jQuery = require('materialize-css/node_modules/jquery');
+window.$ = window.jQuery = require('materialize-css/node_modules/jquery/dist/jquery.js');
 
-require('materialize-css');
+require('materialize-css/dist/js/materialize');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
