@@ -7,7 +7,7 @@
 ## Core Dependencies
 * PHP >7.0
 * MariaDB/MySQL
-* [https://laravel.com/docs/5.4#installation](Laravel PHP Requirements)
+* [Laravel 5.4 PHP Requirements](https://laravel.com/docs/5.4#installation)
 * Composer
 * Yarn (Optional, but recommended)
 * Redis
