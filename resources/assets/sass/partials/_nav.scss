@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+nav {
+  .brand-logo {
+    max-height: 30px;
+    height: auto;
+    margin-top: 18px;
+  }
+}
+
+.button-collapse {
+  @extend .white-text;
+}

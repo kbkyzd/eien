@@ -1,11 +1,11 @@
 // Materialize Overrides
 @import "vendor/overrides";
-
-// Materialize
+/** Vendor Imports */
 @import "~materialize-css/sass/materialize.scss";
-
-// Pages
-@import "home";
-
-// Vendors conifgs
 @import "~material-design-icons/iconfont/material-icons.css";
+
+/** Partials */
+@import "partials/nav";
+
+/** Pages */
+@import "pages/home";
