@@ -31,6 +31,7 @@ before_script:
 install:
     - composer install --no-interaction
     - yarn
+    - npm rebuild node-sass
 
 script:
     - npm run prod
