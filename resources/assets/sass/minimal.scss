@@ -1,3 +1,14 @@
+@import "~materialize-css/sass/components/color";
+$link-color: color('purple', 'lighten-2');
+
+a {
+  color: $link-color;
+}
+
+a:hover {
+  color: lighten($link-color, 20%);
+}
+
 body {
   background-size: cover;
   display: flex;
@@ -19,4 +30,8 @@ body {
 
 [type="checkbox"] + label {
   left: 0;
+}
+
+.btn {
+  margin-top: 10px;
 }

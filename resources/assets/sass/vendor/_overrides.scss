@@ -1,5 +1,6 @@
 // Bring in the mixins first
-@import "node_modules/materialize-css/sass/components/color";
+@import "~materialize-css/sass/components/color";
 
 $primary-color: color('pink', 'darken-3') !default;
-$secondary-color: color('purple', 'darken-3') !default;
+$secondary-color: color('purple', 'darken-1') !default;
+

@@ -1,8 +1,12 @@
 // Materialize Overrides
 @import "vendor/overrides";
+
 /** Vendor Imports */
 @import "~materialize-css/sass/materialize.scss";
 @import "~material-design-icons/iconfont/material-icons.css";
+
+/** Globals */
+@import "eienglobals";
 
 /** Partials */
 @import "partials/nav";
