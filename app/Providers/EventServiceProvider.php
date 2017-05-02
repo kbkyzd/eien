@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'eien\Events\Event' => [
-            'eien\Listeners\EventListener',
+        'eien\Events\Telegramed' => [
+            'eien\Listeners\SendTelegram',
         ],
     ];
 
