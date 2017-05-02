@@ -31,11 +31,6 @@ class HomeController extends Controller
     public function index()
     {
         $sessions = DB::table('sessions')->where('user_id', '=', Auth::id())->get();
-//        event(new Telegramed());
-//        Mail::raw('Message text', function($message) {
-//            $message->from('us@example.com', 'Laravel');
-//            $message->to('foo@example.com')->cc('bar@example.com');
-//        });
 
         return view('main.home')->with(compact('sessions'));
     }
