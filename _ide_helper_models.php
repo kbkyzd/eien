@@ -99,6 +99,7 @@ namespace eien{
  * @property string $password
  * @property string $api_token
  * @property string $twofa_secret
+ * @property int $telegram_id
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -113,6 +114,7 @@ namespace eien{
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\User whereTelegramId($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereTwofaSecret($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereUsername($value)
