@@ -14,6 +14,7 @@ class TelegramTest extends Notification implements ShouldQueue
     use Queueable;
 
     protected $telemessage;
+    protected $userId;
 
     /**
      * Create a new notification instance.
@@ -23,6 +24,7 @@ class TelegramTest extends Notification implements ShouldQueue
     public function __construct($telemessage)
     {
         $this->telemessage = $telemessage;
+        $this->userId = auth()->user();
     }
 
     /**
@@ -45,7 +47,7 @@ class TelegramTest extends Notification implements ShouldQueue
     public function toTelegram($notifiable)
     {
         return TelegramMessage::create()
-            ->to(131226576)
+            ->to($this->userId->telegram_id)
             ->content("*hello* \n xD" . "\n" . $this->telemessage);
     }
 
@@ -61,4 +63,5 @@ class TelegramTest extends Notification implements ShouldQueue
             //
         ];
     }
+
 }
