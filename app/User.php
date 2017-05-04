@@ -2,8 +2,8 @@
 
 namespace eien;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Kodeine\Acl\Traits\HasRole;
 
 class User extends Authenticatable
@@ -16,7 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name',
+        'username',
+        'email',
+        'password',
     ];
 
     /**
@@ -25,6 +28,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'api_token', 'twofa_secret',
+        'password',
+        'remember_token',
+        'api_token',
+        'twofa_secret',
     ];
+
+    /**
+     * Route notifications for the Telegram channel.
+     *
+     * @return int
+     */
+//    public function routeNotificationForTelegram()
+//    {
+//        return $this->telegram_id;
+//    }
 }
