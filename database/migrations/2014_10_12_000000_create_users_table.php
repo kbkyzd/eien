@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('api_token')->unique()->nullable();
+            $table->string('lang')->default('en');
             $table->string('twofa_secret')->nullable();
             $table->integer('telegram_id')->unique()->nullable();
             $table->rememberToken();
