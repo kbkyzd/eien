@@ -5,9 +5,9 @@
         <div class="section no-pad-bot">
             <div class="container main-spread">
                 <br><br>
-                <h1 class="header kana center white-text">永遠</h1>
+                <h1 class="header kana center white-text">@lang('site.header')</h1>
                 <div class="row center">
-                    <h5 class="header kana col s12 light white-text">夜空の果まで届けたい、 星の距離超え</h5>
+                    <h5 class="header kana col s12 light white-text">@lang('site.sub_header')</h5>
                 </div>
                 <br><br>
 
