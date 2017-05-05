@@ -1129,7 +1129,7 @@ FSS.SVGRenderer.prototype.formatStyle = function(t, e, i) {
 })(this);
 
 (function() {
-    let height = 40,
+    let height = 50,
         spotHeightCoef = 1.4;
 
     // Lights for the shader scene.
@@ -1178,8 +1178,8 @@ FSS.SVGRenderer.prototype.formatStyle = function(t, e, i) {
 
     let loginSurface = new ShadedSurface({
         container: '#login-fss-container',
-        cellsize: 60,
-        jitter: 0.3,
+        cellsize: 85,
+        jitter: 0.6,
         depth: 5,
         materialAmbient: '#880E4F',
         materialDiffuse: '#de78f5',
