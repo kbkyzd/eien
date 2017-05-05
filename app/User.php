@@ -2,6 +2,7 @@
 
 namespace eien;
 
+use eien\Notifications\ResetPassword as ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Kodeine\Acl\Traits\HasRole;
@@ -43,4 +44,15 @@ class User extends Authenticatable
 //    {
 //        return $this->telegram_id;
 //    }
+
+    /**
+     * Send the password reset notification (Queued)
+     *
+     * @param  string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }
