@@ -87,5 +87,6 @@ return [
     */
 
     'prefix' => 'eien',
+    'bus_cache_duration' => env('BUS_CACHE_DURATION', 60),
 
 ];
