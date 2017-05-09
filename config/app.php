@@ -171,6 +171,7 @@ return [
         PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
         Geocoder\Laravel\Providers\GeocoderService::class,
         NotificationChannels\Telegram\TelegramServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
 
         // Packages
+        'Agent'        => Jenssegers\Agent\Facades\Agent::class,
         'Google2FA'    => PragmaRX\Google2FA\Vendor\Laravel\Facade::class,
     ],
 
