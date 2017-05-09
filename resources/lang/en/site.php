@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'header' => 'Eien',
+    'me'         => 'Amatsuka',
+    'header'     => 'Eien',
     'sub_header' => 'xaxaxaxaxa',
 ];
