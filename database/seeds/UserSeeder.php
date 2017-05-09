@@ -31,6 +31,14 @@ class UserSeeder extends Seeder
             'api_token' => str_random(60)
         ]);
 
+        User::create([
+            'name' => 'chihiro',
+            'email' => 'chihiro',
+            'username' => 'chihiro',
+            'password' => bcrypt('kappa'),
+            'api_token' => str_random(60)
+        ]);
+
         foreach (range(1, 9) as $inx) {
             User::create([
                 'name' => $faker->name,
