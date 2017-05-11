@@ -27,5 +27,8 @@ Works on XAMPP as well, but beware of the usual issues (CA.pem not being linked,
 * `yarn`
 * `npm run watch` or `npm run dev`
 
+## Running
+You'll need `Redis` and laravel's queue worker running for the app to work properly. For the most part, all you'll need to do is run `php artisan queue:work` and everything will work.
+
 ## Tests
 `vendor/bin/phpunit`
