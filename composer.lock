@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4373f05e2eaae491a9f6c8f6792b8495",
+    "content-hash": "4b1cf0e705c7ab3b5a90fa4449890036",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3500,6 +3500,39 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wataridori/simple-fuzzy-search",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wataridori/simple-fuzzy-search.git",
+                "reference": "cad84b3bfe1809aeafe2c3ce6811ec587af68080"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wataridori/simple-fuzzy-search/zipball/cad84b3bfe1809aeafe2c3ce6811ec587af68080",
+                "reference": "cad84b3bfe1809aeafe2c3ce6811ec587af68080",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wataridori\\SFS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Duc Thang",
+                    "email": "thangtd90@gmail.com"
+                }
+            ],
+            "description": "Simple Fuzzy Search for PHP",
+            "time": "2016-03-12T13:38:53+00:00"
         },
         {
             "name": "willdurand/geocoder",
