@@ -35,4 +35,11 @@ class Session
           ->where('id', $sessionId)
           ->delete();
     }
+
+    public function removeAllSessions($userId)
+    {
+        DB::table('sessions')
+            ->where('user_id', $userId)
+            ->delete();
+    }
 }
