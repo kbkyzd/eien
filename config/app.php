@@ -172,6 +172,7 @@ return [
         Geocoder\Laravel\Providers\GeocoderService::class,
         NotificationChannels\Telegram\TelegramServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
