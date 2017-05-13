@@ -26,7 +26,7 @@
     <main id="app">
         @yield('content')
     </main>
-    <footer class="page-footer">
+    <footer>
         @include('partials.footer')
     </footer>
 
