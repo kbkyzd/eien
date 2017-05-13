@@ -30,9 +30,22 @@ Route::get('about', 'HomeController@about');
  */
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('profile', 'UserController@showProfile');
-    Route::group(['prefix' => 'session'], function () {
-        Route::get('/', 'Accounts\SessionController@view');
+
+
+    /** User Config */
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', 'Settings\ProfileController@account')->name('settings.account');
+
+        Route::group(['prefix' => 'security'], function () {
+            Route::get('/', 'Settings\ProfileController@security')->name('settings.security');
+        });
+
+        Route::group(['prefix' => 'session'], function () {
+            Route::get('/', 'Settings\ProfileController@session')->name('settings.session');
+            Route::post('/', 'Settings\ProfileController@sessionLogout');
+        });
     });
+
 });
 
 /**
@@ -47,4 +60,19 @@ Route::group(['prefix' => 'TFA'], function () {
         'middleware' => 'throttle:5',
         'uses'       => 'Auth\LoginController@validateToken',
     ]);
+});
+
+/**
+ * Administration related routes
+ */
+Route::group(['prefix' => 'eien', 'middleware' => ['auth', 'acl'], 'is' => 'root|mod' ], function () {
+    Route::get('/', function () {
+    });
+});
+
+
+Route::group(['prefix' => 'bus'], function () {
+    Route::group(['prefix' => 'raw'], function () {
+        Route::get('{file}', 'RawBusDataController@view');
+    });
 });
