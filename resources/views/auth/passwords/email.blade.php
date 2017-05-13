@@ -1,46 +1,33 @@
-@extends('layouts.app')
+@extends('layouts.minimal')
+@section('title', 'Password Reset')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
+    <div class="col s12 card grey darken-4">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12">
+                    <h4 class="white-text light">Reset Password</h4>
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
+                        <p class="green-text">{{ session('status') }}</p>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    {{-- Errors --}}
+                    @if ($errors->has('email'))
+                        <p class="green-text">{{ $errors->first('email') }}</p>
+                    @endif
                 </div>
+                <form role="form" method="POST" action="{{ route('password.email') }}">
+                    {{ csrf_field() }}
+
+                    <div class="input-field col s12">
+                        <label for="email" class="grey-text text-lighten-1">E-Mail Address</label>
+                        <input id="email" type="email" class="white-text" name="email" value="{{ old('email') }}" required>
+                        <button type="submit" class="btn waves-effect waves-light">Send Password Reset Link</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
-</div>
+    <div id="login-fss-container"></div>
 @endsection

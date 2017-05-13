@@ -1,90 +1,66 @@
-@extends('layouts.app')
+@extends('layouts.minimal')
+@section('title', 'Register')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                            {{ csrf_field() }}
+    <div class="register card grey darken-4">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12">
+                    <h4 class="white-text light">Register</h4>
+                    @if ($errors->has('name'))
+                        <p class="red-text">{{ $errors->first('name') }}</p>
+                    @endif
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Name</label>
+                    @if ($errors->has('email'))
+                        <p class="red-text">{{ $errors->first('email') }}</p>
+                    @endif
 
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                    @if ($errors->has('username'))
+                        <p class="red-text">{{ $errors->first('username') }}</p>
+                    @endif
 
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                                <label for="username" class="col-md-4 control-label">Username</label>
-
-                                <div class="col-md-6">
-                                    <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                    @if ($errors->has('username'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required>
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Register
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    @if ($errors->has('password'))
+                        <p class="red-text">{{ $errors->first('password') }}</p>
+                    @endif
                 </div>
+            </div>
+            <div class="row">
+                    <form role="form" method="POST" action="{{ route('register') }}">
+                        {{ csrf_field() }}
+
+                        <div class="input-field col s12">
+                            <input id="name" type="text" class="white-text {{ $errors->has('name') ? 'invalid' : '' }}" name="name" value="{{ old('name') }}" required>
+                            <label for="name">Name</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="white-text {{ $errors->has('email') ? 'invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                            <label for="email">E-Mail Address</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input id="username" type="text" class="white-text {{ $errors->has('username') ? 'invalid' : '' }}" name="username" value="{{ old('username') }}" required>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="white-text {{ $errors->has('password') ? 'invalid' : '' }}" name="password" required>
+                            <label for="password">Password</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input id="password-confirm" type="password" class="white-text {{ $errors->has('password') ? 'invalid' : '' }}" name="password_confirmation" required>
+                            <label for="password-confirm">Confirm Password</label>
+                        </div>
+                        <div class="col s12">
+                            <button type="submit" class="btn">Register</button>
+                            &nbsp;
+                            {!! app('captcha')->display(['data-theme' => 'dark']) !!}
+                        </div>
+
+                    </form>
             </div>
         </div>
     </div>
+    <div id="login-fss-container"></div>
 @endsection
