@@ -1,4 +1,5 @@
 @import "~materialize-css/sass/components/color";
+
 $link-color: color('purple', 'lighten-2');
 
 a {
@@ -34,4 +35,14 @@ body {
 
 .btn {
   margin-top: 10px;
+}
+
+.g-recaptcha {
+  float: right;
+}
+
+@media (min-width: 900px) {
+  .register {
+    max-width: 50%;
+  }
 }
