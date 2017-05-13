@@ -2,14 +2,9 @@
 
 namespace eien\Http\Controllers;
 
-use eien\Events\Telegramed;
-use eien\Notifications\TelegramTest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Notification;
-use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -30,12 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sessions = DB::table('sessions')->where('user_id', '=', Auth::id())->get();
-
-        return view('main.home')->with(compact('sessions'));
+        return view('main.index');
     }
 
 
+    /**
+     * @return \Illuminate\Http\Response
+     */
     public function about()
     {
         return view('main.about');
