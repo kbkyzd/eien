@@ -36,3 +36,5 @@ script:
     - npm run prod
     - vendor/bin/phpunit
 
+notifications:
+    email: false
