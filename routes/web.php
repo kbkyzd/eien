@@ -19,8 +19,8 @@ Route::get('/', function () {
 // Auth Routes
 Auth::routes();
 
-// Main Top-level routes
-Route::get('home', 'HomeController@index');
+/** Generic routes for static pages (i.e. About us/me) */
+Route::get('index', 'HomeController@index');
 Route::get('about', 'HomeController@about');
 
 
