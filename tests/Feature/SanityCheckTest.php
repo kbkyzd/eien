@@ -7,12 +7,7 @@ use Tests\TestCase;
 
 class SanityCheckTest extends TestCase
 {
-    /**
-     * @test
-     * A basic sanity check.
-     *
-     * @return void
-     */
+    /** @test A basic sanity check. */
     public function it_actually_works()
     {
         $response = $this->get('/');
