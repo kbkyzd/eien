@@ -1,3 +1,14 @@
+$pink-shade: #f06292;
+
 html {
   font-family: Roboto, "Meiryo UI", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro";
+}
+
+::selection {
+  background-color: $pink-shade;
+}
+
+.btn {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
