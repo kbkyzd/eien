@@ -13,18 +13,16 @@ class sendTelegram extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $telemessage;
-    protected $userId;
+    protected $teleMessage;
 
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param $teleMessage
      */
-    public function __construct($telemessage)
+    public function __construct($teleMessage)
     {
-        $this->telemessage = $telemessage;
-        $this->userId = auth()->user();
+        $this->teleMessage = $teleMessage;
     }
 
     /**
@@ -47,8 +45,7 @@ class sendTelegram extends Notification implements ShouldQueue
     public function toTelegram($notifiable)
     {
         return TelegramMessage::create()
-            ->to($this->userId->telegram_id)
-            ->content("*hello* \n xD" . "\n" . $this->telemessage);
+            ->content($this->teleMessage);
     }
 
     /**

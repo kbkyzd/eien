@@ -40,10 +40,10 @@ class User extends Authenticatable
      *
      * @return int
      */
-//    public function routeNotificationForTelegram()
-//    {
-//        return $this->telegram_id;
-//    }
+    public function routeNotificationForTelegram()
+    {
+        return $this->telegram_id;
+    }
 
     /**
      * Send the password reset notification (Queued)
