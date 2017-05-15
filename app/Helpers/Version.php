@@ -4,6 +4,10 @@ namespace eien\Helpers;
 
 use Illuminate\Support\Facades\Cache;
 
+/**
+ * Various aesthetics for use in the footer
+ * @package eien\Helpers
+ */
 class Version
 {
     public function revision()
