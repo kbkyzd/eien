@@ -15,9 +15,7 @@
             </div>
             <div id="tabSessions" class="col s12">
                 <h4 class="light">Current Active Sessions</h4>
-
-
-                <table>
+                <table class="highlight">
                     <thead>
                     <tr>
                         <th>Browser</th>
