@@ -33,8 +33,27 @@ let swap = function() {
 $(function() {
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
+    $('select').material_select();
 
     $('img[data-alt-src]').each(function() {
         new Image().src = $(this).data('alt-src');
     }).hover(swap, swap);
+
+    const shrinkHeader = 322;
+    $(window).scroll(() => {
+        let scroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (scroll >= shrinkHeader) {
+            $('nav').addClass('ex');
+        } else {
+            $('nav').removeClass('ex');
+        }
+
+        $('nav').hover(() =>{
+            if ($('nav').hasClass('ex') && scroll >= shrinkHeader) {
+                $('nav').removeClass('ex');
+            }
+        });
+    });
+
+
 });

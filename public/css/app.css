@@ -11630,6 +11630,15 @@ nav .brand-logo {
   margin-top: 18px;
 }
 
+nav {
+  transition: background .45s ease-in-out;
+}
+
+nav.ex {
+  transition: background .9s ease;
+  background: rgba(173, 20, 87, 0.4);
+}
+
 /** Pages */
 
 p {
