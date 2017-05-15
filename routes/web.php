@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Home
 Route::get('/', function () {
     return view('main.index');
@@ -34,6 +23,8 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 
     /** User Config */
     Route::group(['prefix' => 'settings'], function () {
+        /** Main View Routes */
+        /** ---------------- */
         Route::get('/', 'Settings\ProfileController@account')->name('settings.account');
 
         Route::group(['prefix' => 'security'], function () {
