@@ -23,4 +23,17 @@ class Version
             return shell_exec('git rev-parse --short HEAD');
         });
     }
+
+    public function isClean()
+    {
+        return Cache::remember('version:current-state', 60, function () {
+            $porcelain = shell_exec('git status --porcelain');
+
+            if ($porcelain) {
+                return false;
+            }
+
+            return true;
+        });
+    }
 }
