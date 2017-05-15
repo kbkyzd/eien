@@ -20,12 +20,12 @@ const app = new Vue({
     el: '#app',
 });
 
-var swap = function() {
-    var $this = $(this);
-    var newSource = $this.data('alt-src');
+let swap = function() {
+    let $this = $(this);
+    let newSource = $this.data('alt-src');
     $this.data('alt-src', $this.attr('src'));
     $this.attr('src', newSource);
-}
+};
 
 /**
  * Initializations
