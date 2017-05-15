@@ -35,6 +35,11 @@ class User extends Authenticatable
         'twofa_secret',
     ];
 
+    public function ot_token()
+    {
+        return $this->hasOne('eien\TelegramToken');
+    }
+
     /**
      * Route notifications for the Telegram channel.
      *
