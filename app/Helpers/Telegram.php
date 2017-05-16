@@ -2,7 +2,6 @@
 
 namespace eien\Helpers;
 
-use eien\User;
 use GuzzleHttp\Client;
 
 class Telegram
