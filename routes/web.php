@@ -18,7 +18,7 @@ Route::get('about', 'HomeController@about');
  * (e.g. Configurations, settings, profiles etc) -- should be grouped
  */
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
-    Route::get('profile', 'UserController@showProfile');
+    Route::get('profile', 'UserController@showProfile')->name('user.profile');
 
 
     /** User Config */
@@ -54,8 +54,8 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
  * Token validation is throttled to 5 req/min.
  */
 Route::group(['prefix' => 'TFA'], function () {
-    Route::get('enable', 'TFAController@enable');
-    Route::get('disable', 'TFAController@disable');
+    Route::get('enable', 'TFAController@enable')->name('tfa.enable');
+    Route::get('disable', 'TFAController@disable')->name('tfa.disable');
     Route::get('validate', 'Auth\LoginController@getValidateToken');
     Route::post('validate', [
         'middleware' => 'throttle:5',
