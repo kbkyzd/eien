@@ -2,31 +2,36 @@
 
 namespace eien\Http\Controllers\Api;
 
-use eien\Helpers\Cached;
+use eien\Helpers\{
+    BusSearch, Cached
+};
 use eien\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use wataridori\SFS\SimpleFuzzySearch;
 
 class SearchController extends Controller
 {
-    public function searchServices(Request $request, Cached $cached)
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Cached $cached
+     * @param \eien\Helpers\BusSearch $search
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function searchServices(Request $request, Cached $cached, BusSearch $search)
     {
-        $query = $request->q;
-        $serviceObj = $cached->getAsArray('bus-services');
-
-        $sfs = new SimpleFuzzySearch($serviceObj['services'], ['name']);
-        $results = $sfs->search($query);
+        $results = $search->searchServices($request->q, $cached);
 
         return response()->json($results);
     }
 
-    public function searchStops(Request $request, Cached $cached)
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Cached $cached
+     * @param \eien\Helpers\BusSearch $search
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function searchStops(Request $request, Cached $cached, BusSearch $search)
     {
-        $query = $request->q;
-        $serviceObj = $cached->getAsArray('bus-stops');
-
-        $sfs = new SimpleFuzzySearch($serviceObj, ['name', 'no']);
-        $results = $sfs->search($query);
+        $results = $search->searchStops($request->q, $cached);
 
         return response()->json($results);
     }
