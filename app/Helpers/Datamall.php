@@ -84,7 +84,7 @@ class Datamall
     /**
      * @return $this
      */
-    public function fetch()
+    public function prepare()
     {
         $this->requestUri = $this->apiEndpoint . '?BusStopID=' . $this->busStopId . '&SST=' . $this->sst;
 

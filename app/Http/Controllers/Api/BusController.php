@@ -88,7 +88,7 @@ class BusController extends Controller
     {
         $busStop = $request->busStop;
         $arrival = $datamall->busStop($busStop)
-                            ->fetch();
+                            ->prepare();
 
         if ($request->no) {
             $arrival->withBus($request->no);
