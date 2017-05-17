@@ -3,6 +3,7 @@
 namespace eien\Helpers;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
 
 class Datamall
 {
@@ -103,20 +104,25 @@ class Datamall
     }
 
     /**
+     * Store requests in cache if possible.
+     * Datamall's update frequency for arrival is 1 minute, so 30 seconds is acceptable.
+     *
      * @return mixed
      */
     public function get()
     {
-        $headers = [
-            'headers' => [
-                'AccountKey' => $this->accountKey,
-            ],
-        ];
+        return Cache::remember('bus:datamall:' . $this->busStopId, 0.5, function () {
+            $headers = [
+                'headers' => [
+                    'AccountKey' => $this->accountKey,
+                ],
+            ];
 
-        $response = $this->guzzle->request('GET', $this->requestUri, $headers)
-                                 ->getBody()
-                                 ->getContents();
+            $response = $this->guzzle->request('GET', $this->requestUri, $headers)
+                                     ->getBody()
+                                     ->getContents();
 
-        return json_decode($response)->Services;
+            return json_decode($response)->Services;
+        });
     }
 }
