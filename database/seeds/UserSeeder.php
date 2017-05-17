@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'amatsuka@amatsuka.amatsuka',
             'username' => 'amatsuka',
             'password' => bcrypt('kappa'),
-            'api_token' => str_random(60)
+            'api_token' => 'kappa'
         ]);
 
         User::create([
