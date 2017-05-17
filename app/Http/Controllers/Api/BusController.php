@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BusController extends Controller
 {
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Cached $cached
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function service(Request $request, Cached $cached)
     {
         $busNo = $request->busNo;
@@ -20,6 +25,11 @@ class BusController extends Controller
         }
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Cached $cached
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function stop(Request $request, Cached $cached)
     {
         $stopNo = $request->stopNo;
@@ -32,6 +42,11 @@ class BusController extends Controller
         }
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Cached $cached
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function stopService(Request $request, Cached $cached)
     {
         $stopNo = $request->stopNo;
@@ -44,6 +59,11 @@ class BusController extends Controller
         }
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Cached $cached
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function busService(Request $request, Cached $cached)
     {
         $busNo = $request->busNo;
