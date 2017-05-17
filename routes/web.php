@@ -37,13 +37,16 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
         });
 
         /** Config Routes */
+
+        // Telegram
         Route::group(['prefix' => 'telegram'], function () {
             Route::get('generatesecret', 'TelegramController@regenerateSecret')->name('settings.telegram.generatesecret');
             Route::get('disable', 'TelegramController@disable')->name('settings.telegram.disable');
             Route::get('sendTest', 'TelegramController@sendTestMessage')->name('settings.telegram.sendtest');
             Route::post('verify', 'TelegramController@verifyUser')->name('settings.telegram.verify');
         });
-        
+
+        // Account
         Route::post('/', 'Settings\ProfileController@editSettings');
     });
 
