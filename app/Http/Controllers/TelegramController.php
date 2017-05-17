@@ -14,13 +14,13 @@ class TelegramController extends Controller
     public function verifyUser(Request $request, Telegram $telegram, Client $guzzle)
     {
         $telegramUsername = $request->telegram_username;
-        $secretToken = Auth::user()->ot_token->ot_token;
+        $secretToken = $request->user()->ot_token->ot_token;
 
         $botResponse = $telegram->getUpdates($guzzle);
         foreach ($botResponse->result as $botResult) {
             // Verify token and username matches
             if ($botResult->message->text === $secretToken && $botResult->message->from->username === $telegramUsername) {
-                $user = Auth::user();
+                $user = $request->user();
 
                 $user->telegram_username = $telegramUsername;
                 $user->telegram_id = $botResult->message->from->id;
@@ -37,9 +37,9 @@ class TelegramController extends Controller
             ->with('status-error', 'Failed to verify token.');
     }
 
-    public function disable()
+    public function disable(Request $request)
     {
-        $user = Auth::user();
+        $user = $request->user();
         $user->telegram_username = null;
         $user->telegram_id = null;
         $user->save();
@@ -49,9 +49,9 @@ class TelegramController extends Controller
             ->with('status-success', 'Deleted.');
     }
 
-    public function regenerateSecret(TelegramToken $telegramToken)
+    public function regenerateSecret(Request $request, TelegramToken $telegramToken)
     {
-        $user = Auth::user();
+        $user = $request->user();
         $secret = bin2hex(random_bytes(10));
 
         if ($user->ot_token) {
@@ -65,9 +65,9 @@ class TelegramController extends Controller
         return back();
     }
 
-    public function sendTestMessage()
+    public function sendTestMessage(Request $request)
     {
-        $user = Auth::user();
+        $user = $request->user();
         $user->notify(new sendTelegram('This is a test message.'));
 
         return back()->with('status-success', 'Test message sent.');
