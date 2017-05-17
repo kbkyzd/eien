@@ -3,6 +3,7 @@
 namespace eien\Http\Controllers\Api;
 
 use eien\Helpers\Cached;
+use eien\Helpers\Datamall;
 use eien\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -81,5 +82,18 @@ class BusController extends Controller
             default:
                 return response()->json(['error' => 'File not found.'], 404);
         }
+    }
+
+    public function arrival(Request $request, Datamall $datamall)
+    {
+        $busStop = $request->busStop;
+        $arrival = $datamall->busStop($busStop)
+                            ->fetch();
+
+        if ($request->no) {
+            $arrival->withBus($request->no);
+        }
+
+        return response()->json($arrival->get());
     }
 }
