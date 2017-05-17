@@ -36,6 +36,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
             Route::post('/', 'Settings\ProfileController@sessionLogout');
         });
 
+        Route::group(['prefix' => 'bus'], function () {
+            Route::get('/', 'Settings\ProfileController@buses')->name('settings.bus');
+        });
+
         /** Config Routes */
 
         // Telegram
@@ -76,7 +80,6 @@ Route::group(['prefix' => 'eien', 'middleware' => ['auth', 'acl'], 'is' => 'root
 
 
 Route::group(['prefix' => 'bus'], function () {
-    Route::group(['prefix' => 'raw'], function () {
-        Route::get('{file}', 'RawBusDataController@view');
-    });
+    Route::get('dashboard', 'BusController@index')->name('bus.dashboard');
+
 });
