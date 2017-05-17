@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTelegramTokenTable extends Migration
+class CreateTelegramTokensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -28,6 +28,6 @@ class CreateTelegramTokenTable extends Migration
      */
     public function down()
     {
-        Schema::drop('telegram_token');
+        Schema::drop('telegram_tokens');
     }
 }
