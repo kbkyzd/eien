@@ -23,6 +23,9 @@ Route::group(['prefix' => '/v1', 'middleware' => 'auth:api'], function () {
             Route::get('service', 'Api\SearchController@searchServices');
             Route::get('stop', 'Api\SearchController@searchStops');
         });
+
+        Route::get('arrival/{busStop}', 'Api\BusController@arrival');
+
     });
 });
 
