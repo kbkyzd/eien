@@ -20,7 +20,7 @@ class TFAController extends Controller
         $user->twofa_secret = $secret;
         $user->save();
 
-        $qrUri = Google2FA::getQRCodeInline('永遠', $user->email, $secret);
+        $qrUri = Google2FA::getQRCodeInline('永遠', $user->email, $secret, 666);
 
         return view('TFA.enable', ['image' => $qrUri, 'secret' => $secret]);
     }
