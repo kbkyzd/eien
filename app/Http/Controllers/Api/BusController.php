@@ -84,6 +84,11 @@ class BusController extends Controller
         }
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \eien\Helpers\Datamall $datamall
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function arrival(Request $request, Datamall $datamall)
     {
         $busStop = $request->busStop;
