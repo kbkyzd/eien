@@ -13,22 +13,28 @@
 * Redis
 
 ## Development
-Copy .env.dev to .env
-
 * Nginx + PHP-FPM
 * MariaDB (MySQL should work)
 * Any *nix should do fine (tested with FreeBSD, Windows and WSL)
 
 Works on XAMPP as well, but beware of the usual issues (CA.pem not being linked, missing extensions)
 
+* Copy .env.dev to .env
+* Run `php artisan key:generate`
+* Fill in .env with your own settings (All of them are pretty self-explanatory)
+
 ## Building
 * `git clone https://github.com/kbkyzd/eien.git`
 * `composer install`
 * `yarn`
-* `npm run watch` or `npm run dev`
+* `npm run dev`
 
 ## Running
-You'll need `Redis` and laravel's queue worker running for the app to work properly. For the most part, all you'll need to do is run `php artisan queue:work` and everything will work.
+The app makes use of `redis` as both a cache and a message queue. So you'll need `Redis` and Laravel's queue worker running for the app to work properly. 
+For the most part, all you'll need to do is run `php artisan queue:work` and everything will work.
+It's highly recommended that you bare-minimum run `redis` as a cache as it greatly speeds up the bus-query API.
+
+If you really can't get Redis running (or you're just lazy), change the `QUEUE_DRIVER` (in `.env`) to `SYNC` and `CACHE_DRIVER` to `FILE`.
 
 ## Tests
 `vendor/bin/phpunit`
