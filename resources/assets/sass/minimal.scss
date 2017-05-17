@@ -1,6 +1,7 @@
 @import "~materialize-css/sass/components/color";
 
 $link-color: color('purple', 'lighten-2');
+$white: #ffffff;
 
 a {
   color: $link-color;
@@ -45,4 +46,12 @@ body {
   .register {
     max-width: 50%;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: $white !important;
 }
