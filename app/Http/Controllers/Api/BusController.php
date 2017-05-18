@@ -91,8 +91,7 @@ class BusController extends Controller
      */
     public function arrival(Request $request, Datamall $datamall)
     {
-        $busStop = $request->busStop;
-        $arrival = $datamall->busStop($busStop)
+        $arrival = $datamall->busStop($request->busStop)
                             ->prepare();
 
         if ($request->no) {
