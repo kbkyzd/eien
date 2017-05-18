@@ -46,7 +46,7 @@ class ValidateSecretRequest extends FormRequest
     {
         try {
             $this->user = User::findOrFail(session('2fa:user:id'));
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             return false;
         }
 
