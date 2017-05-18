@@ -2,9 +2,9 @@
 
 namespace eien\Http\Requests;
 
-use Cache;
 use eien\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\Factory as ValidationFactory;
 use PragmaRX\Google2FA\Vendor\Laravel\Facade as Google2FA;
 
