@@ -9,7 +9,7 @@ Route::group(['prefix' => '/v1', 'middleware' => 'auth:api'], function () {
     Route::group(['prefix' => 'bus'], function () {
 
         Route::group(['prefix' => 'raw'], function () {
-            Route::get('{file}', 'RawBusDataController@view');
+            Route::get('{file}/{busNo?}', 'RawBusDataController@view');
         });
 
         /** Lookup */

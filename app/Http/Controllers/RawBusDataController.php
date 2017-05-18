@@ -17,7 +17,13 @@ class RawBusDataController extends Controller
     public function view(Request $request, Cached $cached)
     {
         try {
-            $data = $cached->retrieveBusRaw($request->file);
+            $fileName = $request->file;
+
+            if ($request->busNo) {
+                $fileName .= '/' . $request->busNo;
+            }
+
+            $data = $cached->retrieveBusRaw($fileName);
 
             return response($data)->header('Content-Type', 'application/json');
         } catch (FileNotFoundException $ex) {
