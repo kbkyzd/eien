@@ -48,9 +48,9 @@ class Datamall
     /**
      * Singapore standard time.
      *
-     * @var bool
+     * @var string
      */
-    protected $sst = true;
+    protected $sst = 'True';
 
     /**
      * @var int
@@ -82,7 +82,7 @@ class Datamall
      * @param bool $sst
      * @return $this
      */
-    public function sst($sst)
+    public function isSst($sst)
     {
         $this->sst = $sst ? "True" : "False";
 
