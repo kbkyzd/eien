@@ -34,6 +34,13 @@ class Datamall
     protected $requestUri;
 
     /**
+     * Guzzle request headers (usually only AccountKey goes here).
+     *
+     * @var string
+     */
+    protected $headers;
+
+    /**
      * @var
      */
     protected $busStopId;
@@ -89,6 +96,12 @@ class Datamall
     {
         $this->requestUri = $this->apiEndpoint . '?BusStopID=' . $this->busStopId . '&SST=' . $this->sst;
 
+        $this->headers = [
+            'headers' => [
+                'AccountKey' => $this->accountKey,
+            ],
+        ];
+
         return $this;
     }
 
@@ -112,13 +125,8 @@ class Datamall
     public function get()
     {
         return Cache::remember('bus:datamall:' . $this->busStopId, 0.5, function () {
-            $headers = [
-                'headers' => [
-                    'AccountKey' => $this->accountKey,
-                ],
-            ];
 
-            $response = $this->guzzle->request('GET', $this->requestUri, $headers)
+            $response = $this->guzzle->request('GET', $this->requestUri, $this->headers)
                                      ->getBody()
                                      ->getContents();
 
