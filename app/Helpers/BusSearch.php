@@ -10,7 +10,10 @@ class BusSearch
     {
         $serviceObject = $cached->getAsArray('bus-services');
 
-        $sfs = new SimpleFuzzySearch($serviceObject['services'], ['name']);
+        $sfs = new SimpleFuzzySearch($serviceObject['services'], [
+            'name',
+            'no',
+        ]);
         $results = $sfs->search($query);
 
         return $results;
