@@ -173,6 +173,7 @@ return [
         NotificationChannels\Telegram\TelegramServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Cornford\Googlmapper\MapperServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -235,6 +236,7 @@ return [
         // Packages
         'Agent'        => Jenssegers\Agent\Facades\Agent::class,
         'Google2FA'    => PragmaRX\Google2FA\Vendor\Laravel\Facade::class,
+        'Mapper'       => Cornford\Googlmapper\Facades\MapperFacade::class,
     ],
 
 ];
