@@ -56,6 +56,28 @@ namespace eien\Acl{
 
 namespace eien{
 /**
+ * eien\BusWatchList
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $bus_stop_id
+ * @property string $name
+ * @property string $description
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereBusStopId($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereUserId($value)
+ */
+	class BusWatchList extends \Eloquent {}
+}
+
+namespace eien{
+/**
  * eien\Sensor
  *
  * @property int $id
@@ -90,6 +112,25 @@ namespace eien{
 
 namespace eien{
 /**
+ * eien\TelegramToken
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $ot_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \eien\User $user
+ * @method static \Illuminate\Database\Query\Builder|\eien\TelegramToken whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\TelegramToken whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\TelegramToken whereOtToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\TelegramToken whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\TelegramToken whereUserId($value)
+ */
+	class TelegramToken extends \Eloquent {}
+}
+
+namespace eien{
+/**
  * eien\User
  *
  * @property int $id
@@ -98,12 +139,15 @@ namespace eien{
  * @property string $username
  * @property string $password
  * @property string $api_token
+ * @property string $lang
  * @property string $twofa_secret
+ * @property string $telegram_username
  * @property int $telegram_id
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \eien\TelegramToken $ot_token
  * @property-read \Illuminate\Database\Eloquent\Collection|\eien\Acl\Permission[] $permissions
  * @property-read \Illuminate\Database\Eloquent\Collection|\eien\Acl\Role[] $roles
  * @method static \Illuminate\Database\Query\Builder|\eien\User role($role, $column = null)
@@ -111,10 +155,12 @@ namespace eien{
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\User whereLang($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereRememberToken($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereTelegramId($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\User whereTelegramUsername($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereTwofaSecret($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereUsername($value)
