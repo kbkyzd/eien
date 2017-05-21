@@ -35,6 +35,11 @@ class User extends Authenticatable
         'twofa_secret',
     ];
 
+    public function watchlist()
+    {
+        return $this->hasMany('eien\BusWatchList');
+    }
+
     public function ot_token()
     {
         return $this->hasOne('eien\TelegramToken');
