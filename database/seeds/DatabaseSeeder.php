@@ -10,6 +10,8 @@ class DatabaseSeeder extends Seeder
         'role_user',
         'sensors',
         'sensor_raws',
+        'telegram_tokens',
+        'bus_watch_lists',
     ];
 
     /**
@@ -25,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call('UserSeeder');
         $this->call('RoleSeeder');
         $this->call('UserRoleSeeder');
+        $this->call('WatchListSeeder');
 
         // Sensors
         $this->call('SensorSeeder');
@@ -36,7 +39,8 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         foreach ($this->table as $tableName) {
-            DB::table($tableName)->truncate();
+            DB::table($tableName)
+              ->truncate();
         }
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
