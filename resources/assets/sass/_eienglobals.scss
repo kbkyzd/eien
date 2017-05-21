@@ -12,3 +12,19 @@ html {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+
+span.badge {
+  &.new:after {
+    content: '';
+  }
+}
+
+i.material-icons.solid_on_hover {
+  color: rgba(16, 16, 16, 0.15);
+}
+
+i.material-icons.solid_on_hover:hover {
+  color: rgba(16, 16, 16, 1);
+  cursor: pointer;
+}
+
