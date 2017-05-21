@@ -70,7 +70,7 @@ class TelegramController extends Controller
     public function sendTestMessage(Request $request)
     {
         $user = $request->user();
-        $user->notify(new sendTelegram('This is a test message.'));
+        $user->notify(new sendTelegram("This is a test message.\nIt __works__ \xF0\x9F\x91\x8C"));
 
         return back()->with('status-success', 'Test message sent.');
     }
