@@ -94,8 +94,8 @@ class BusController extends Controller
         $arrival = $datamall->busStop($request->busStop)
                             ->prepare();
 
-        if ($request->no) {
-            $arrival->withBus($request->no);
+        if ($request->has('no')) {
+            return response()->json($arrival->getBus($request->no));
         }
 
         return response()->json($arrival->get());

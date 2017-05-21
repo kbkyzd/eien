@@ -53,11 +53,6 @@ class Datamall
     protected $sst = 'True';
 
     /**
-     * @var int
-     */
-    protected $serviceNo;
-
-    /**
      * @param \GuzzleHttp\Client $guzzle
      */
     public function __construct(Client $guzzle)
@@ -109,11 +104,22 @@ class Datamall
      * @param $serviceNo
      * @return $this
      */
-    public function withBus($serviceNo)
+    public function getBus($serviceNo)
     {
-        $this->requestUri .= '&ServiceNo=' . $serviceNo;
+        $arrivals = Cache::remember('bus:datamall:' . $this->busStopId, 0.7, function () {
 
-        return $this;
+            $response = $this->guzzle->request('GET', $this->requestUri, $this->headers)
+                                     ->getBody()
+                                     ->getContents();
+
+            return json_decode($response)->Services;
+        });
+
+        foreach ($arrivals as $arrival) {
+            if ($arrival->ServiceNo === $serviceNo) {
+                return $arrival;
+            }
+        }
     }
 
     /**
