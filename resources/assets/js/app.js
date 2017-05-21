@@ -49,7 +49,7 @@ $(function() {
             $('nav').removeClass('ex');
         }
 
-        $('nav').hover(() =>{
+        $('nav').hover(() => {
             if ($('nav').hasClass('ex') && scroll >= shrinkHeader) {
                 $('nav').removeClass('ex');
             }
