@@ -34,6 +34,7 @@ $(function() {
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
     $('select').material_select();
+    $('.modal').modal();
 
     $('img[data-alt-src]').each(function() {
         new Image().src = $(this).data('alt-src');
