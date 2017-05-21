@@ -1,18 +1,15 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
+use eien\Helpers\BusScheduler;
+use eien\User;
 
-/*
-|--------------------------------------------------------------------------
-| Console Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of your Closure based console
-| commands. Each Closure is bound to a command instance allowing a
-| simple approach to interacting with each command's IO methods.
-|
-*/
+Artisan::command('eien:fetch-eta', function (BusScheduler $busScheduler) {
+    $this->info('Fetching ETAs...');
+    $users = User::has('watchlist')
+                 ->pluck('id');
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
+    foreach ($users as $user) {
+        $busScheduler->fetchArrivals($user);
+    }
+})->describe('Fetch arrivals');
+
