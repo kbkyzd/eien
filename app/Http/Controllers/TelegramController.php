@@ -26,6 +26,8 @@ class TelegramController extends Controller
                 $user->telegram_id = $botResult->message->from->id;
                 $user->save();
 
+                $user->notify(new sendTelegram("*Hello!*\nYour account has been verified under " . $request->user()->username ." \xF0\x9F\x91\x8C"));
+
                 return redirect()
                     ->route('settings.account')
                     ->with('status-success', 'Verified.');
