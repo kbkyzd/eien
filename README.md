@@ -47,5 +47,13 @@ The core part of the notification system is [`BusScheduler`](https://github.com/
 
 Again, you need to make sure Redis or whatever queue driver you're using is warning. (Read the section about queues).
 
+## Scraped Data and `Storage`
+You will need to run `php artisan storage:link` to symlink the paths. Read more about it on Laravel's docs. The raw scraped data can be found at [`storage/app/public`](https://github.com/kbkyzd/eien/tree/master/storage/app/public).
+
+[`Cached`](https://github.com/kbkyzd/eien/blob/master/app/Helpers/Cached.php) provides a wrapper for interacting with the json files. You'll call it whenever you need to read in the data, and it'll fetch it from cache if it exists. If it doesn't, it'll store it first, then return it.
+
+## Logic
+Pretty much most of the other logic with regards to map/reducing the data lives in the [`controllers`](https://github.com/kbkyzd/eien/tree/master/app/Http/Controllers) folder.
+
 ## Test
 `vendor/bin/phpunit`
