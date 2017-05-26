@@ -29,12 +29,23 @@ Works on XAMPP as well, but beware of the usual issues (CA.pem not being linked,
 * `yarn`
 * `npm run dev`
 
-## Running
+## Queues
 The app makes use of `redis` as both a cache and a message queue. So you'll need `Redis` and Laravel's queue worker running for the app to work properly. 
+
 For the most part, all you'll need to do is run `php artisan queue:work` and everything will work.
+
 It's highly recommended that you bare-minimum run `redis` as a cache as it greatly speeds up the bus-query API.
 
 If you really can't get Redis running (or you're just lazy), change the `QUEUE_DRIVER` (in `.env`) to `SYNC` and `CACHE_DRIVER` to `FILE`.
 
-## Tests
+You should seed the database with `php artisan db:seed` (alternatively, do it while migrating with `php artisan migrate --seed`) to get some test data to work with.
+
+## Notifications
+The core part of the notification system is [`BusScheduler`](https://github.com/kbkyzd/eien/blob/master/app/Helpers/BusScheduler.php). It gets called by an artisan command, which *should* be automatically run by the Laravel's scheduler (see the documentation; it's essentially a cron job).
+
+`BusScheduler` has various checks in place, so it's fine to "call" the command (`php artisan eien:fetch-eta`) as much as you *want*.
+
+Again, you need to make sure Redis or whatever queue driver you're using is warning. (Read the section about queues).
+
+## Test
 `vendor/bin/phpunit`
