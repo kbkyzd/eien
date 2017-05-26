@@ -60,16 +60,25 @@ namespace eien{
  *
  * @property int $id
  * @property int $user_id
- * @property int $bus_stop_id
+ * @property string $bus_stop_id
+ * @property string $bus_service
+ * @property bool $notify
  * @property string $name
  * @property string $description
+ * @property string $start
+ * @property string $end
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \eien\User $user
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereBusService($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereBusStopId($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereEnd($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereNotify($value)
+ * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereStart($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\BusWatchList whereUserId($value)
  */
@@ -150,6 +159,7 @@ namespace eien{
  * @property-read \eien\TelegramToken $ot_token
  * @property-read \Illuminate\Database\Eloquent\Collection|\eien\Acl\Permission[] $permissions
  * @property-read \Illuminate\Database\Eloquent\Collection|\eien\Acl\Role[] $roles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\eien\BusWatchList[] $watchlist
  * @method static \Illuminate\Database\Query\Builder|\eien\User role($role, $column = null)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereApiToken($value)
  * @method static \Illuminate\Database\Query\Builder|\eien\User whereCreatedAt($value)

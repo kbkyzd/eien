@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-05-18.
+    * Generated on 2017-05-23.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -43,6 +43,7 @@ namespace PHPSTORM_META {
             'geocoder' instanceof \Geocoder\Laravel\ProviderAndDumperAggregator,
             'agent' instanceof \Jenssegers\Agent\Agent,
             'captcha' instanceof \Anhskohbo\NoCaptcha\NoCaptcha,
+            'mapper' instanceof \Cornford\Googlmapper\Mapper,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
@@ -172,6 +173,7 @@ namespace PHPSTORM_META {
             'geocoder' instanceof \Geocoder\Laravel\ProviderAndDumperAggregator,
             'agent' instanceof \Jenssegers\Agent\Agent,
             'captcha' instanceof \Anhskohbo\NoCaptcha\NoCaptcha,
+            'mapper' instanceof \Cornford\Googlmapper\Mapper,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
@@ -301,6 +303,7 @@ namespace PHPSTORM_META {
             'geocoder' instanceof \Geocoder\Laravel\ProviderAndDumperAggregator,
             'agent' instanceof \Jenssegers\Agent\Agent,
             'captcha' instanceof \Anhskohbo\NoCaptcha\NoCaptcha,
+            'mapper' instanceof \Cornford\Googlmapper\Mapper,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
@@ -430,6 +433,7 @@ namespace PHPSTORM_META {
             'geocoder' instanceof \Geocoder\Laravel\ProviderAndDumperAggregator,
             'agent' instanceof \Jenssegers\Agent\Agent,
             'captcha' instanceof \Anhskohbo\NoCaptcha\NoCaptcha,
+            'mapper' instanceof \Cornford\Googlmapper\Mapper,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,

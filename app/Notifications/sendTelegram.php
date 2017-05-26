@@ -3,9 +3,8 @@
 namespace eien\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
 
@@ -13,22 +12,22 @@ class sendTelegram extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $teleMessage;
+    protected $message;
 
     /**
      * Create a new notification instance.
      *
-     * @param $teleMessage
+     * @param $message
      */
-    public function __construct($teleMessage)
+    public function __construct($message)
     {
-        $this->teleMessage = $teleMessage;
+        $this->message = $message;
     }
 
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -39,19 +38,19 @@ class sendTelegram extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toTelegram($notifiable)
     {
         return TelegramMessage::create()
-            ->content($this->teleMessage);
+                              ->content($this->message);
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

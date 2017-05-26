@@ -22,4 +22,15 @@ class HomeController extends Controller
     {
         return view('main.about');
     }
+
+    public function toggleLang()
+    {
+        if (app()->isLocale('en')) {
+            session()->put('locale', 'jp');
+        } else {
+            session()->put('locale', 'en');
+        }
+
+        return back();
+    }
 }

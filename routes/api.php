@@ -25,7 +25,10 @@ Route::group(['prefix' => '/v1', 'middleware' => 'auth:api'], function () {
         });
 
         Route::get('arrival/{busStop}', 'Api\BusController@arrival');
+    });
 
+    Route::group(['prefix' => 'sensor'], function () {
+        Route::post('tempsAdd', 'Api\SensorController@add');
     });
 });
 

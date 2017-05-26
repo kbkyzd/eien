@@ -4,6 +4,7 @@
 /** Vendor Imports */
 @import "~materialize-css/sass/materialize.scss";
 @import "~material-design-icons/iconfont/material-icons.css";
+@import "~materialize-clockpicker/dist/css/materialize.clockpicker.css";
 
 /** Globals */
 @import "eienglobals";
@@ -15,3 +16,4 @@
 @import "pages/home";
 @import "pages/about";
 @import "pages/settings";
+@import "pages/forms";

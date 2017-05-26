@@ -45,7 +45,8 @@ class sendBusSchedule extends Notification implements ShouldQueue
     {
         return TelegramMessage::create()
                               ->content($this->message)
-                              ->button('View Details', 'http://senkawa.moe/bus/dashboard');
+                              ->button('View Details', 'https://chieri.senkawa.moe/bus/dashboard')
+                              ->button('Snooze', 'https://chieri.senkawa.moe');
     }
 
     /**

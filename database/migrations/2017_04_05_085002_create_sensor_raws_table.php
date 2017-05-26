@@ -16,7 +16,10 @@ class CreateSensorRawsTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->integer('sensor_id')->unsigned();
             $table->foreign('sensor_id')->references('id')->on('sensors');
-            $table->float('raw_values');
+            $table->float('temp');
+            $table->float('humi');
+            $table->integer('stop');
+            $table->integer('unix_timestamp');
             $table->timestamps();
         });
     }

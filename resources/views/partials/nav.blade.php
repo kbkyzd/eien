@@ -4,12 +4,12 @@
             <a href="/"><img class="responsive-img brand-logo" data-alt-src="/img/KBKYZD.png" src="{{ url("img/KBKYZD-alt.png") }}"></a>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url('/bus') }}">Bus</a></li>
+                <li><a href="{{ route('bus.dashboard') }}">Bus</a></li>
                 <li><a href="{{ url('/v1/api') }}">API</a></li>
 
                 @if(Auth::check())
                     <ul id="userdropdown" class="dropdown-content">
-                        <li><a href="{{ url('/user/profile') }}">Profile</a></li>
+                        <li><a href="{{ route('user.profile') }}">Profile</a></li>
                         <li><a href="{{ route('settings.account') }}">Settings</a></li>
                         @role('root|mod')
                         <li><a href="{{ url('/eien') }}">Admin</a></li>
@@ -40,8 +40,9 @@
     <li><img class="responsive-img brand-logo" src="{{ url("img/KBKYZD.png") }}"></li>
     @if(Auth::check())
         <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/user/profile') }}">Profile</a></li>
-        <li><a href="{{ url('/user/settings') }}">Settings</a></li>
+        <li><a href="{{ route('user.profile') }}">Profile</a></li>
+        <li><a href="{{ route('settings.account') }}">Settings</a></li>
+        <li><a href="{{ route('bus.dashboard') }}">Bus</a></li>
         @role('root|mod')
         <li><a href="{{ url('/eien') }}">Admin</a></li>
         @endrole

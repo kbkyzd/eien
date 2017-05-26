@@ -2,7 +2,8 @@
 
 namespace eien\Providers;
 
-use Illuminate\Support\Facades\Gate;
+use eien\BusWatchList;
+use eien\Policies\BusWatchListPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'eien\Model' => 'eien\Policies\ModelPolicy',
+        BusWatchList::class => BusWatchListPolicy::class,
     ];
 
     /**
@@ -24,7 +25,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
     }
 }

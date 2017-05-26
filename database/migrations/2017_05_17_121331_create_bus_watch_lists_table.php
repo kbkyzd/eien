@@ -21,6 +21,8 @@ class CreateBusWatchListsTable extends Migration
             $table->boolean('notify')->default('0');
             $table->string('name');
             $table->text('description');
+            $table->time('start')->default('00:00:00');
+            $table->time('end')->default('00:00:00');
             $table->timestamps();
         });
     }

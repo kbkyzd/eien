@@ -10,6 +10,10 @@ class SensorRaw extends Model
      * @var array
      */
     protected $fillable = [
-        'sensor_id', 'raw_values',
+        'sensor_id',
+        'temp',
+        'humi',
+        'unix_timestamp',
+        'stop'
     ];
 }

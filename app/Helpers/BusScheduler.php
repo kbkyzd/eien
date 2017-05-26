@@ -29,7 +29,7 @@ class BusScheduler
      * @param $userId
      * @param int $arrivesIn
      */
-    public function fetchArrivals($userId, $arrivesIn = 360)
+    public function fetchArrivals($userId, $arrivesIn = 420)
     {
         $user = User::findOrFail($userId);
         if (!$user->telegram_id) return;
@@ -50,19 +50,19 @@ class BusScheduler
 
         // Map
         foreach ($watchList as $watched) {
-            $firstRange = Carbon::parse($watched->start);
-            $secondRange = Carbon::parse($watched->stop);
-
-            if (Carbon::now()->between($firstRange, $secondRange)) {
+//            $firstRange = Carbon::parse($watched->start);
+//            $secondRange = Carbon::parse($watched->stop);
+//
+//            if (Carbon::now()->between($firstRange, $secondRange)) {
                 $arrivals[$watched->bus_service] = $this->datamall->busStop($watched->bus_stop_id)
                                                                   ->prepare()
                                                                   ->getBus($watched->bus_service);
-            }
+//            }
         }
 
         // Reduce
         foreach ($arrivals as $arrival) {
-            $diff = Carbon::create($arrival->NextBus->EstimatedArrival)->diffInSeconds();
+            $diff = Carbon::parse($arrival->NextBus->EstimatedArrival)->diffInSeconds();
 
             if ($diff < $arrivesIn) {
                 $arriving[] = $arrival;
@@ -73,6 +73,7 @@ class BusScheduler
         if (empty($arriving)) return;
 
         foreach ($arriving as $arrive) {
+            // ETA
             $eta = Carbon::parse($arrive->NextBus->EstimatedArrival)->diffForHumans();
             $etaSubsequent = Carbon::parse($arrive->SubsequentBus->EstimatedArrival)->diffForHumans(null, true);
             $etaSubsequent3 = Carbon::parse($arrive->SubsequentBus3->EstimatedArrival)->diffForHumans(null, true);
@@ -83,6 +84,7 @@ class BusScheduler
 
             $message .= "*" . $arrive->ServiceNo . "\n---\n";
             $message .= "*Arrives in: *" . $eta . "*\n";
+            $message .= "Current load: " . $arrive->NextBus->Load . "\n";
             $message .= "Subsequent buses: *" . $etaSubsequent . "*, *" . $etaSubsequent3 . "*\n";
             $message .= "==================\n\n";
         }

@@ -13,6 +13,7 @@ class BusSearch
         $sfs = new SimpleFuzzySearch($serviceObject['services'], [
             'name',
             'no',
+            'operator'
         ]);
         $results = $sfs->search($query);
 

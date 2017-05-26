@@ -2,6 +2,7 @@
 
 namespace eien\Http\Controllers\Settings;
 
+use eien\BusWatchList;
 use eien\Helpers\Session;
 use eien\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,9 +15,16 @@ class ProfileController extends Controller
         return view('settings.account');
     }
 
-    public function security()
+    public function security(Request $request)
     {
-        return view('settings.security');
+        $user = $request->user();
+
+        return view('settings.security')->with('user', $user);
+    }
+
+    public function editSettings(Request $request)
+    {
+
     }
 
     public function session(Agent $agent, Session $session)
@@ -64,6 +72,16 @@ class ProfileController extends Controller
             return redirect('/');
         }
 
-        return back()->with('status', 'Session removed.');
+        return back()->with('status-success', 'Session removed.');
+    }
+
+    public function enableApiAccess(Request $request)
+    {
+        $user = $request->user();
+        $secret = str_random(60);
+        $user->api_token = $secret;
+        $user->save();
+
+        return back();
     }
 }

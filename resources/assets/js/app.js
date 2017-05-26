@@ -35,6 +35,21 @@ $(function() {
     $('.parallax').parallax();
     $('select').material_select();
     $('.modal').modal();
+    $('#start_timepicker').pickatime({
+        darktheme: true,
+        vibrate: true,
+        autoclose: false,
+        twelvehour: false,
+        default: 'now',
+    });
+
+    $('#end_timepicker').pickatime({
+        darktheme: true,
+        vibrate: true,
+        autoclose: false,
+        twelvehour: false,
+        default: '08:00',
+    });
 
     $('img[data-alt-src]').each(function() {
         new Image().src = $(this).data('alt-src');

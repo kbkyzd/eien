@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
         $this->call('WatchListSeeder');
 
         // Sensors
-        $this->call('SensorSeeder');
-        $this->call('SensorRawDataSeeder');
+//        $this->call('SensorSeeder');
+//        $this->call('SensorRawDataSeeder');
     }
 
     public function cleanDb()

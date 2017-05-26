@@ -23,6 +23,7 @@
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",
     "material-design-icons": "^3.0.1",
+    "materialize-clockpicker": "^1.0.1",
     "materialize-css": "^0.98.2",
     "vee-validate": "^2.0.0-beta.25",
     "vue": "^2.1.10"

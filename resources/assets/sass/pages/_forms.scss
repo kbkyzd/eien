@@ -1,0 +1,15 @@
+$black: #1d1d1f;
+
+.form-switch {
+  margin-top: 2.7em;
+}
+
+.spoiler {
+  background-color: $black;
+  color: $black;
+}
+
+.spoiler:hover {
+  transition: color .4s ease;
+  color: #FFFFFF;
+}

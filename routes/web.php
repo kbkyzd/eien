@@ -11,6 +11,7 @@ Auth::routes();
 /** Generic routes for static pages (i.e. About us/me) */
 Route::get('index', 'HomeController@index');
 Route::get('about', 'HomeController@about');
+Route::get('togglelang', 'HomeController@toggleLang');
 
 
 /**
@@ -29,15 +30,12 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'security'], function () {
             Route::get('/', 'Settings\ProfileController@security')->name('settings.security');
+            Route::get('enableApi', 'Settings\ProfileController@enableApiAccess')->name('settings.enable.api');
         });
 
         Route::group(['prefix' => 'session'], function () {
             Route::get('/', 'Settings\ProfileController@session')->name('settings.session');
             Route::post('/', 'Settings\ProfileController@sessionLogout');
-        });
-
-        Route::group(['prefix' => 'bus'], function () {
-            Route::get('/', 'Settings\ProfileController@buses')->name('settings.bus');
         });
 
         /** Config Routes */
@@ -79,7 +77,29 @@ Route::group(['prefix' => 'eien', 'middleware' => ['auth', 'acl'], 'is' => 'root
 });
 
 
-Route::group(['prefix' => 'bus'], function () {
+Route::group(['prefix' => 'bus', 'middleware' => 'auth'], function () {
     Route::get('dashboard', 'BusController@index')->name('bus.dashboard');
+    Route::get('autocomplete', 'BusController@autocomplete');
+
+    Route::group(['prefix' => 'info'], function () {
+        Route::get('stops/{stopId}', 'InfoController@stops')->name('bus.info.stops')->where('stopId', '[0-9]+');
+    });
+
+    Route::group(['prefix' => 'search'], function () {
+        Route::get('services', 'BusController@searchServices')->name('bus.search.services');
+        Route::get('stops', 'BusController@searchStops')->name('bus.search.stops');
+    });
+
+    Route::group(['prefix' => 'list'], function () {
+        Route::get('/', 'BusListController@index')->name('bus.list.view');
+        Route::get('edit/{id}', 'BusListController@edit')->name('bus.list.edit');
+        Route::post('edit/{id}', 'BusListController@update')->name('bus.list.edit');
+        Route::post('create', 'BusListController@create')->name('bus.list.add');
+        Route::post('delete', 'BusListController@destroy')->name('bus.list.delete');
+    });
+
+    Route::group(['prefix' => 'notifications'], function () {
+        Route::post('toggle', 'BusListController@toggleNotification')->name('bus.list.toggle.notify');
+    });
 
 });
